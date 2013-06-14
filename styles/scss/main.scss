@@ -1,8 +1,29 @@
 @import "normalize.scss";
 @import "h5bp.scss";
 @import "lato.scss";
+@import "palette.scss";
+@import "prefixes.scss";
 
 body {
-  background: #37373a;
-  color: #f3f3f4;
+  background  :  $dark   ;
+  color       :  $light  ;
+  margin-top  :  -21px   ;
+}
+
+$block-height: 270px;
+
+.block {
+  position          :  relative              ;
+  z-index           :  10                    ;
+  height            :  $block-height         ;
+  width             :  100%                  ;
+  background-color  :  rgba(200,200,200,1)  ;
+  @include vendy(box-shadow, 0 -13px 13px rgba(0,0,0,.1));
+  @include vendy(transition, .2s);
+  &:hover {
+    @include vendy(transition, .5s);
+    @include vendy(transform, scale(1,1.1));
+    box-shadow: 0 13px 13px rgba(0,0,0,.1),0 -13px 13px rgba(0,0,0,.1);
+    z-index: 11;
+  }
 }
