@@ -1,0 +1,1 @@
+$(window).on("scroll",function(){console.log($(this).scrollTop());$(this).scrollTop()>150&&!$(".nav").hasClass("visible")?$(".nav").animate({opacity:1},"slow",function(){$(this).addClass("visible").removeAttr("style")}):$(this).scrollTop()<=150&&$(".nav").hasClass("visible")&&$(".nav").animate({opacity:0},"slow",function(){$(this).removeClass("visible").removeAttr("style")})});

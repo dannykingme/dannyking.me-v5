@@ -3,27 +3,84 @@
 @import "lato.scss";
 @import "palette.scss";
 @import "prefixes.scss";
+@import "shadows.scss";
+@import "gradient.scss";
+@import "palette.scss";
 
 body {
-  background  :  $dark   ;
-  color       :  $light  ;
+  background-color  :  lighten($light, 3%)  ;
+  color       :  $dark  ;
   margin-top  :  -21px   ;
+  font-family: 'lato', sans-serif;
+  font-weight: 200;
 }
 
-$block-height: 270px;
+.nav {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
 
-.block {
-  position          :  relative              ;
-  z-index           :  10                    ;
-  height            :  $block-height         ;
-  width             :  100%                  ;
-  background-color  :  rgba(200,200,200,1)  ;
-  @include vendy(box-shadow, 0 -13px 13px rgba(0,0,0,.1));
+$proj-height: 500px;
+
+.projs {
+  width: 100%;
+  overflow: hidden;
+  padding: 20% 0;
+}
+
+.proj {
+
+  display: inline-block ;
+  margin-right: -4px;
+  margin-bottom: -6px;
+  position         : relative     ;
+  z-index          : 10           ;
+  width            : calc(100%/3)         ;
+  height           : $proj-height ;
+  background-color : $light       ;
+
   @include vendy(transition, .2s);
+  @include gradient(rgba(0,0,0,0),rgba(0,0,0,.02));
+  @include box-shadow (0 -3px 8px rgba(  0,  0,  0, .08),
+                       0  1px 0   rgba(255,255,255, .55)inset);
+
   &:hover {
+
+    z-index          : 11                  ;
+    background-color : lighten($light, 3%) ;
+    background-image : none                ;
+
     @include vendy(transition, .5s);
-    @include vendy(transform, scale(1,1.1));
-    box-shadow: 0 13px 13px rgba(0,0,0,.1),0 -13px 13px rgba(0,0,0,.1);
-    z-index: 11;
+    @include vendy(transform, scale(1.13,1.13));
+    @include box-shadow( 0    8px  8px rgba(  0,  0,  0, .21),
+                         0   -3px 13px rgba(  0,  0,  0, .13),
+                        -1px -1px  0   rgba(  0,  0,  0, .13)inset,
+                         0    2px  0   rgba(255,255,255, .89)inset);
+
   }
+
+}
+
+header {
+
+  background-color: $light;
+  line-height: 8em;
+  padding: 0 4em;
+
+  @include box-shadow( 0  1px  1px rgba(  0,  0,  0, .13),
+                       0  3px  8px rgba(  0,  0,  0, .05),
+                       0 -1px  1px rgba(  0,  0,  0, .13)inset,
+                       0  1px  0   rgba(255,255,255,   1)inset);
+
+  @include gradient( rgba(255,255,255,.55), rgba(255,255,255,.0) );
+
+  h1 {
+
+    font-weight: 200;
+    color: lighten($dark, 33%);
+    margin-bottom: 0;
+
+  }
+
 }

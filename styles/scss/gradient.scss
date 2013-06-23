@@ -1,0 +1,9 @@
+@mixin gradient($top, $bottom) {
+
+  background-image:   -moz-linear-gradient(top,      $top 0%,$bottom 100%);
+  background-image:-webkit-linear-gradient(top,      $top 0%,$bottom 100%);
+  background-image:        linear-gradient(to bottom,$top 0%,$bottom 100%);
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$top}', endColorstr='#{$bottom}');
+
+}
